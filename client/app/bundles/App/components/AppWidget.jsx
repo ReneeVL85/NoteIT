@@ -2,10 +2,8 @@ import React, { PropTypes } from 'react';
 import _ from 'lodash';
 import NewNoteComponent from './NewNoteComponent';
 import NoteComponent from './NoteComponent';
-import Navbar from './Navbar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import RaisedButton from 'material-ui/RaisedButton';
 
 // Simple example of a React "dumb" component
 export default class AppWidget extends React.Component {
@@ -112,17 +110,15 @@ export default class AppWidget extends React.Component {
     return(
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       <div className="notes">
-
-        <Navbar />
         <h1>Notes</h1>
-        <RaisedButton
+        <button
           onClick={ () => {
             this.setState({deleting: !this.state.deleting})
             this.deleteNotes()
           }}
         >
           Remove Notes
-        </RaisedButton>
+        </button>
         <ul>
           {this.state.notes.map((note) => {
             return(
